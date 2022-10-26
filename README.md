@@ -59,6 +59,8 @@ root@776ee02d86b2:/# hdfs dfs -setrep -w 2  /neue_direction/einige_akte.txt
 Replication 2 set: /neue_direction/einige_akte.txt
 Waiting for /neue_direction/einige_akte.txt .... done
 
+seems it takes time to complete. because it has to be copied across different nodes. when reducing it seems to be slightly quicker.
+
 3 find info 
 root@776ee02d86b2:/# hdfs fsck  /neue_direction/einige_akte.txt -files -blocks -locations
 Connecting to namenode via http://namenode:9870/fsck?ugi=root&files=1&blocks=1&locations=1&path=%2Fneue_direction%2Feinige_akte.txt
@@ -122,3 +124,6 @@ No. of decommissioning Replica: 0
 No. of corrupted Replica: 0
 Block replica on datanode/rack: 603dcd9a64c3/default-rack is HEALTHY
 Block replica on datanode/rack: 3fdb3030e13a/default-rack is HEALTHY
+
+#block3
+in block3 directory
