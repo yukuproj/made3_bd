@@ -126,4 +126,4 @@ Block replica on datanode/rack: 603dcd9a64c3/default-rack is HEALTHY
 Block replica on datanode/rack: 3fdb3030e13a/default-rack is HEALTHY
 
 #block3
-in block3 directory
+in hw1/block3 directory
