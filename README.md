@@ -127,3 +127,5 @@ Block replica on datanode/rack: 3fdb3030e13a/default-rack is HEALTHY
 
 #block3
 in hw1/block3 directory
+root@776ee02d86b2:/# mapred streaming -input /block3/AB_NYC_2019.csv -output /block3/output -mapper "python3 mapper.py" -reducer "python3 reducer.py" -file /block3/reducer.py -file /block3/mapper.py
+
