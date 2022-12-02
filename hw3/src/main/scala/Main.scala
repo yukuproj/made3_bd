@@ -7,13 +7,14 @@ import breeze.stats.mean
 
 import java.io.File
 
+
 class LinearRegression() {
   private var W: DenseVector[Double] = DenseVector()
 
   private var X_dev: DenseMatrix[Double] = DenseMatrix(1,1,0.0)
-  private val Y_dev: DenseVector[Double] = DenseVector()
+  private var Y_dev: DenseVector[Double] = DenseVector()
   private var X_valid: DenseMatrix[Double]= DenseMatrix(1,1,0.0)
-  private val Y_valid: DenseVector[Double] = DenseVector()
+  private var Y_valid: DenseVector[Double] = DenseVector()
 
   def SplitData(X : DenseMatrix[Double],
                  Y: DenseVector[Double],
@@ -23,10 +24,10 @@ class LinearRegression() {
     val max_index_train = N/2 - 1
     val start_index_validation = max_index_train + 1
 
-    this.X_dev:= X(0 until max_index_train, ::)
-    this.X_valid := X(start_index_validation to (N - 1), ::)
-    this.Y_dev := Y(0 to max_index_train)
-    this.Y_valid := Y(start_index_validation to (N - 1))
+    this.X_dev= X(0 to  max_index_train, ::)
+    this.X_valid = X(start_index_validation to (N - 1), ::)
+    this.Y_dev = Y(0 to max_index_train)
+    this.Y_valid = Y(start_index_validation to (N - 1))
     0
   }
 
@@ -61,9 +62,9 @@ class LinearRegression() {
 
 object Main {
   def main(args: Array[String]): Unit = {
-    val TrainF = "/home/yuku/made3/3_dl/hw3/data/train.csv" //  args(0)
-    val TestF = "/home/yuku/made3/3_dl/hw3/data/test.csv" //args(1)
-    val PredF = "/home/yuku/made3/3_dl/hw3/data/pred.csv" //args(2)
+    val TrainF = "../data/train.csv" //  args(0)
+    val TestF = "../data/test.csv" //args(1)
+    val PredF = "../data/pred.csv" //args(2)
     var Train = csvread(new File(TrainF), ';', skipLines = 1)
     var Test = csvread(new File(TestF), ';', skipLines = 1)
     val LinearRegression = new LinearRegression()
